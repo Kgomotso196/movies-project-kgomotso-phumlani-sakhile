@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchPopularMovies } from '../utils/apiConfig';
+import { fetchLatestMovies } from '../utils/apiConfig';
 import '../Components/HomePage.css';
 
 const HomePage = () => {
@@ -10,7 +10,7 @@ const HomePage = () => {
   useEffect(() => {
     const getMovies = async () => {
       try {
-        const movies = await fetchPopularMovies();
+        const movies = await fetchLatestMovies();
         console.log(movies)
         setMovies(movies);
       } catch (error) {
