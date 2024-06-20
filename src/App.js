@@ -1,7 +1,7 @@
 import React from 'react';
 import HomePage from './Components/HomePage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import NavBar from './components/NavBar/NavBar';
+import NavBar from './Components/NavBar/NavBar';
 import GenresPage from './pages/GenresPage';
 import MoviesPage from './pages/MoviesPage';
 import ActorsPage from './pages/ActorsPage';

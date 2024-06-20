@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './NavBar.css';
+import logo from '../../assets/logo.jpg';
 
 const NavBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -16,7 +17,7 @@ const NavBar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <Link to="/">MyLogo</Link>
+        <Link to="/"><img src={logo} alt="Logo" style={{ height: '70px', width: 'auto' }}/></Link>
       </div>
       <div className="navbar-links">
         <div className="dropdown">
