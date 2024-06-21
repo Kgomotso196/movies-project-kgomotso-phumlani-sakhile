@@ -10,18 +10,19 @@ import Footer from './Components/Footer';
 
 const App = () => {
   return (
-    <div className="App">
-      <h1>Latest Movies</h1>
-      <HomePage />
-      <Footer />
-      <GenresPage />
-      <MoviesPage />
-      <ActorsPage />
-      <SearchPage />
+    <Router>
       <NavBar />
-      <Router />
+      <Routes>
+        <Route exact path="/" element={<HomePage />} component={HomePage} />
+        <Route path="/genres/:id" component={GenresPage} />
+        <Route path="/movies/:type" component={MoviesPage} />
+        <Route path="/actors" component={ActorsPage} />
+        <Route path="/search" component={SearchPage} />
+      </Routes> 
+      <Footer />
+    </Router>
+    
 
-    </div>
   );
 };
 
