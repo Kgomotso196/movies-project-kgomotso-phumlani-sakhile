@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchLatestMovies } from '../utils/apiConfig';
 import '../Components/HomePage.css';
+import Footer from '../Components/Footer.css';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
