@@ -1,0 +1,45 @@
+/* src/components/Footer.css */
+
+.footer {
+  background-color: #000000;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+  color: rgb(212, 3, 3);
+}
+
+.footer-content p {
+  margin: 0;
+  font-size: 1.2em;
+  
+}
+
+.credits-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.credits-list li {
+  margin: 0 15px;
+}
+
+.credits-list a {
+  margin: 0 5px;
+  text-decoration: none;
+  color: #0073e6;
+}
+
+.credits-list a:hover {
+  text-decoration: underline;
+}
