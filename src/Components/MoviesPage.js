@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { fetchLatestMovies } from '../utils/apiConfig';
-import '../Components/HomePage.css';
+import { Link } from 'react-router-dom';
+import '../Components/MoviesPage.css';
 
-const HomePage = () => {
+const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -12,7 +12,6 @@ const HomePage = () => {
     const getMovies = async () => {
       try {
         const movies = await fetchLatestMovies();
-        console.log(movies)
         setMovies(movies);
       } catch (error) {
         setError(error);
@@ -32,21 +31,11 @@ const HomePage = () => {
       {movies.map(movie => (
         <div key={movie.id} className="movie-card">
           <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-          <h2>{movie.title}</h2>
-          <p>{movie.overview}</p>
+          <h2><Link to={`/movies/${movie.id}`}>{movie.title}</Link></h2>
         </div>
       ))}
     </div>
   );
 };
 
-// const HomePage = () => {
-//   return (
-//     <div>
-//       <h2>Welcome to the Movies App</h2>
-//       <Link to="/movies">Go to Movies</Link>
-//     </div>
-//   );
-// };
-
-export default HomePage;
+export default MoviesPage;
