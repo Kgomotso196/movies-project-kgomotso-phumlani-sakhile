@@ -1,21 +1,49 @@
-// I import React to use its functionality for creating components
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 
-// I import the stylesheet for the input component
-import './input.scss';
+import './modal.scss';
 
-// I create the Input component using a functional component
-const Input = props => {
+const Modal = props => {
+
+    const [active, setActive] = useState(false);
+
+    useEffect(() => {
+        setActive(props.active);
+    }, [props.active]);
+
     return (
-        // I render an input element with props passed to it
-        <input
-            type={props.type} // I set the input type from props
-            placeholder={props.placeholder} // I set the input placeholder from props
-            value={props.value} // I set the input value from props
-            onChange={props.onChange ? (e) => props.onChange(e) : null} // I set the onChange handler if provided in props
-        />
+        <div id={props.id} className={`modal ${active ? 'active' : ''}`}>
+            {props.children}
+        </div>
     );
 }
 
-// I export the Input component as the default export of this module
-export default Input;
+Modal.propTypes = {
+    active: PropTypes.bool,
+    id: PropTypes.string
+}
+
+export const ModalContent = props => {
+
+    const contentRef = useRef(null);
+
+    const closeModal = () => {
+        contentRef.current.parentNode.classList.remove('active');
+        if (props.onClose) props.onClose();
+    }
+
+    return (
+        <div ref={contentRef} className="modal__content">
+            {props.children}
+            <div className="modal__content__close" onClick={closeModal}>
+                <i className="bx bx-x"></i>
+            </div>
+        </div>
+    )
+}
+
+ModalContent.propTypes = {
+    onClose: PropTypes.func
+}
+
+export default Modal;
