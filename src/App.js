@@ -1,26 +1,26 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './Components/HomePage';
-import NavBar from './Components/NavBar/NavBar';
-import GenresPage from './pages/GenresPage';
-import ActorsPage from './pages/ActorsPage';
-import SearchPage from './pages/SearchPage';
-import MoviesPage from './Components/MoviesPage';
-// import SingleMoviePage from './Components/SingleMoviePage';
+import 'swiper/swiper.min.css';
+import './assets/boxicons-2.0.7/css/boxicons.min.css';
+import './App.scss';
 
-const App = () => {
-  return (
-    <Router>
-      <NavBar />
-      <Routes>
-        <Route exact path="/" element={<HomePage />} component={HomePage} />
-        <Route path="/genres/:id" component={GenresPage} />
-        <Route path="/movies" component={MoviesPage} />
-        <Route path="/actors" component={ActorsPage} />
-        <Route path="/search" component={SearchPage} />
-      </Routes>
-    </Router>
-  );
-};
+import { BrowserRouter, Route } from 'react-router-dom';
+
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
+
+import Routes from './config/Routes';
+
+function App() {
+    return (
+        <BrowserRouter>
+            <Route render={props => (
+                <>
+                    <Header {...props}/>
+                    <Routes/>
+                    <Footer/>
+                </>
+            )}/>
+        </BrowserRouter>
+    );
+}
 
 export default App;
