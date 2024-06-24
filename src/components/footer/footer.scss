@@ -1,0 +1,74 @@
+@use "../../scss/" as *;
+
+.footer {
+    position: relative;
+    padding: 3rem 1rem; // Reduced padding for smaller footer
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &__content {
+        max-width: 1000px;
+
+        &__logo {
+            @include flex(center, center);
+            margin-bottom: 2rem;
+        }
+
+        &__menus {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); // Three equal columns
+
+            @include mobile {
+                grid-template-columns: 1fr; // Single column on mobile
+            }
+        }
+
+        &__menu {
+            @include flex(flex-start, flex-start);
+            flex-direction: column;
+            margin-top: 1rem;
+
+            font-size: 1.2rem; // Slightly smaller font size
+            font-weight: 600;
+
+            & > * ~ * {
+                margin-top: 0rem;
+            }
+        }
+
+        &__team {
+            margin-top: 1rem; // Adjusted margin
+
+            .github-list, .linkedin-list {
+                list-style-type: none;
+                padding: 0;
+
+                li {
+                    margin-bottom: 0.5rem; // Reduced margin
+
+                    a {
+                        display: flex;
+                        align-items: center;
+                        text-decoration: none;
+                        color: #ffffff;
+                        font-size: 1rem; // Smaller font size
+                        margin-bottom: 0.3rem; // Reduced margin
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+
+                        svg {
+                            margin-right: 0.3rem; // Adjusted icon margin
+                        }
+                    }
+                }
+            }
+
+            .linkedin-list {
+                margin-top: 1rem; // Added margin-top to separate from GitHub list
+            }
+        }
+    }
+}
