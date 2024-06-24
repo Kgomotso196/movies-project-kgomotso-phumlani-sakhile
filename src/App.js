@@ -12,7 +12,7 @@ import Routes from './config/Routes';
 function App() {
     return (
         <BrowserRouter>
-            <Route render={props => (
+            <Route render={props => (   // render the children file (Header, Routes, Footer)
                 <>
                     <Header {...props}/>
                     <Routes/>

@@ -40,7 +40,7 @@
         &__team {
             margin-top: 1rem; // Adjusted margin
 
-            .github-list {
+            .github-list, .linkedin-list {
                 list-style-type: none;
                 padding: 0;
 
@@ -64,6 +64,10 @@
                         }
                     }
                 }
+            }
+
+            .linkedin-list {
+                margin-top: 1rem; // Added margin-top to separate from GitHub list
             }
         }
     }
